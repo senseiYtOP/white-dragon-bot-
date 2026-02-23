@@ -1,111 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SenseiBot – Discord Bot</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: #fff;
-    }
-    header {
-      padding: 80px 20px;
-      text-align: center;
-    }
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
-    }
-    header p {
-      font-size: 1.2rem;
-      opacity: 0.9;
-    }
-    .btns {
-      margin-top: 30px;
-    }
-    .btns a {
-      text-decoration: none;
-      color: #fff;
-      background: #5865F2;
-      padding: 14px 26px;
-      border-radius: 8px;
-      margin: 10px;
-      display: inline-block;
-      font-weight: bold;
-    }
-    section {
-      padding: 60px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .card {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 25px;
-      border-radius: 12px;
-    }
-    .card h3 {
-      margin-top: 0;
-      color: #9fd3ff;
-    }
-    footer {
-      text-align: center;
-      padding: 30px;
-      background: rgba(0,0,0,0.3);
-      font-size: 0.9rem;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1.21.1 Resource Hub</title>
+    <style>
+        :root {
+            --mc-green: #47a036;
+            --mc-bg: #121212;
+            --card-bg: #1e1e1e;
+            --discord-blurple: #5865F2; /* Official Discord Color */
+            --accent: #ffeb3b;
+        }
+
+        body { background-color: var(--mc-bg); color: #e0e0e0; font-family: 'Segoe UI', sans-serif; margin: 0; scroll-behavior: smooth; }
+        
+        /* Nav updated with Discord link */
+        nav { background: #222; position: sticky; top: 0; z-index: 100; border-bottom: 3px solid var(--mc-green); display: flex; justify-content: center; padding: 15px; }
+        nav a { color: white; text-decoration: none; margin: 0 20px; font-weight: bold; text-transform: uppercase; font-size: 0.8rem; }
+        nav a.discord-nav { color: var(--discord-blurple); }
+        nav a:hover { color: var(--mc-green); }
+
+        header { padding: 60px 20px; text-align: center; background: #1a1a1a; border-bottom: 4px solid var(--mc-green); }
+        .container { max-width: 1100px; margin: auto; padding: 20px; }
+        
+        h2 { border-left: 5px solid var(--mc-green); padding-left: 15px; margin-top: 60px; color: var(--accent); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+
+        .card { background: var(--card-bg); border-radius: 8px; border: 1px solid #333; padding: 15px; transition: 0.3s; }
+        .card:hover { border-color: var(--mc-green); transform: translateY(-5px); }
+        .v-tag { color: var(--mc-green); font-size: 0.7rem; font-weight: bold; }
+        
+        .btn { display: block; text-align: center; background: var(--mc-green); color: white; text-decoration: none; padding: 10px; border-radius: 5px; margin-top: 15px; font-weight: bold; }
+
+        /* New Discord Section Style */
+        .discord-section {
+            background: #2c2f33;
+            border: 2px solid var(--discord-blurple);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .discord-btn {
+            display: inline-block;
+            background: var(--discord-blurple);
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: 15px;
+            transition: 0.2s;
+        }
+        .discord-btn:hover { background: #4752c4; transform: scale(1.05); }
+        
+        .server-box { background: #000; border: 2px dashed var(--mc-green); padding: 20px; display: flex; justify-content: space-between; align-items: center; border-radius: 8px; margin-top: 20px; }
+        .ip-code { font-family: monospace; color: var(--accent); font-size: 1.2rem; }
+        .copy-btn { background: #444; color: white; border: none; padding: 8px 15px; cursor: pointer; border-radius: 4px; }
+    </style>
 </head>
 <body>
 
-  <header>
-    <h1>🤖 White Dragon</h1>
-    <p>The all-in-one Discord bot for moderation, fun, and server management</p>
-    <div class="btns">
-      <a href="https://discord.com/oauth2/authorize?client_id=1378736388253683823&permissions=8&integration_type=0&scope=bot+applications.commands">bot invite</a>
-        <a href="https://discord.gg/TQ8gYgSRud">join discord server</a>
-    </div>
-  </header>
+<nav>
+    <a href="#mods">1.21.1 Mods</a>
+    <a href="#textures">Texture Packs</a>
+    <a href="#servers">Servers</a>
+    <a href="https://discord.gg/BURyKfUTvH" class="discord-nav" target="_blank">Join Discord</a>
+</nav>
 
-  <section>
-    <h2>✨ Features</h2>
-    <div class="features">
-      <div class="card">
-        <h3>🛡️ Moderation</h3>
-        <p>Kick, ban, mute, lock channels, purge messages and keep your server safe.</p>
-      </div>
-      <div class="card">
-        <h3>🎭 Role Management</h3>
-        <p>Easily give or remove roles using simple commands.</p>
-      </div>
-      <div class="card">
-        <h3>🎉 Fun Commands</h3>
-        <p>Memes, say commands, and fun utilities to keep chats active.</p>
-      </div>
-      <div class="card">
-        <h3>⚡ Fast & Simple</h3>
-        <p>Lightweight, fast response time, and easy to use for any server.</p>
-      </div>
-    </div>
-  </section>
+<header>
+    <h1>MINECRAFT HUB</h1>
+    <p>Mods, Textures, and Community</p>
+</header>
 
-  <section>
-    <h2>📜 Commands</h2>
-    <p><b>Moderation:</b> !kick, !ban, !mute, !unmute, !lock, !unlock, !wizz</p>
-    <p><b>Utility:</b> !help, !ping, !serverinfo, !userinfo</p>
-    <p><b>Fun:</b> !say, !meme</p>
-  </section>
+<div class="container">
 
-  <footer>
-    <p>© 2026 SenseiBot • Made by Sensei</p>
-  </footer>
+    <section id="mods">
+        <h2>1.21.1 Mods</h2>
+        <div class="grid">
+            <div class="card">
+                <span class="v-tag">1.21.1 | FABRIC</span>
+                <h3>Sensei's modpack</h3>
+                <p>modpack it incress fps and best for pvpMod with texture packs and others it incress fps and best for pvp.</p>
+                <a href="https://drive.google.com/drive/folders/1CGw-hrYf4fVA5dFSWcqA-nM2tRHZYj85?usp=drive_link" class="btn">Download</a>
+            </div>
+        </div>
+      <h2>1.20.1 Mods</h2>
+        <div class="grid">
+            <div class="card">
+                <span class="v-tag">1.20.1 | FABRIC</span>
+                <h3>Sensei's modpack</h3>
+                <p>combined modpack with texture packs and others it incress fps and best for pvp.</p>
+                <a href="https://drive.google.com/drive/folders/1y24RrE6lHKc9F9-ekkyRmFZrTumtAF7p?usp=drive_link" class="btn">Download</a>
+            </div>
+        </div>
+        <div class="discord-section">
+            <h3>Want more mods?</h3>
+            <p>I update my Discord community with new mods before they hit the site!</p>
+            <a href="https://discord.gg/BURyKfUTvH" class="discord-btn" target="_blank">Join My Discord Server</a>
+        </div>
+    </section>
+
+    <section id="textures">
+        <h2>Resource Packs</h2>
+        <div class="grid">
+            <div class="card">
+                <span class="v-tag">Enjoy /span>
+                <h3>SenSeiPackG</h3>
+                <p>Visual changes for all versions of Minecraft.</p>
+                <a href="https://drive.google.com/drive/folders/1U9Jcal6MBMyfghDn7hnSN3CPp7GxN4hm?usp=drive_link" class="btn">Download Pack</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="servers">
+        <h2>Server IPs</h2>
+        <div class="server-box">
+            <div>
+                <strong>my own survival server</strong><br>
+                <span class="ip-code" id="warpsmp.playserver.pro">warpsmp.playserver.pro</span>
+            </div>
+            <button class="copy-btn" onclick="copyIp()">Copy IP</button>
+        </div>
+    </section>
+
+</div>
+
+<script>
+    function copyIp() {
+        const ip = document.getElementById('warpsmp.playserver.pro').innerText;
+        navigator.clipboard.writeText(ip);
+        alert("IP Copied: " + ip);
+    }
+</script>
 
 </body>
-</html>
+</html>v
